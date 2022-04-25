@@ -17,7 +17,9 @@ namespace Ödev
 
         int Count();
 
+        void SortForQueue(int[] items);
 
-
+        int BinarySearchForQueue(int[] items, int searchkey);
+    
     }
 }

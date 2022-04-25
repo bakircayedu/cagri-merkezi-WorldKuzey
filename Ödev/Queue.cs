@@ -63,5 +63,53 @@ namespace Ödev
 
             return temp;
         }
+
+        public void SortForQueue(int[] items)//bu sıralama algoritmasını seçtim verimsiz ama bunun algoritmasını iyi kavramıştım
+        {
+            int tarama;
+            bool swapped=false;
+            for (tarama = 0; tarama < items.Length; tarama++)
+            {
+
+                swapped = false;
+              
+                
+                for(int i=0;i<(items.Length-tarama-1);i++)
+                {
+                    if (items[i] > items[i + 1])
+                    {
+                        int temp;
+                        temp= items[i];
+                        items[i]=items[i+1];
+                        items[i+1]=temp;
+                        swapped=true;
+
+                    }
+
+
+                }
+
+                if (!swapped) break;
+
+            }
+        }
+
+      
+
+        int IQueue.BinarySearchForQueue(int[] items, int searchkey)
+        {
+            int baslangic = 0, bitis = items.GetUpperBound(0), orta = baslangic + bitis / 2;
+            while (baslangic <= bitis)
+            {
+                orta = (baslangic + bitis) / 2;
+
+                if (items[orta] > searchkey) bitis = orta - 1;
+                else if (items[orta] < searchkey) baslangic = orta + 1;
+                else return orta;
+
+            }
+
+            return -1;
+        }
     }
 }
